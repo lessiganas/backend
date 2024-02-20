@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-require("dotenv").config();
+require("dotenv").config({path:"./config/.env"});
 app.use(express.json());
 const cors = require('cors');
 app.use(cors)
@@ -26,7 +26,7 @@ app.get('*',(req,res)=>{
 
 
 // connection to database
-const connectDB = require("./config/connectDB");
+const connectDB = require("./config/ConnectDB");
 const { patch } = require('./routes/personRoutes');
 connectDB();
 // server creation
